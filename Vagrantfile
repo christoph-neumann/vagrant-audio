@@ -17,7 +17,7 @@ end
 $PROVISION = <<EOF
   set -e
   sudo apt-get update
-  sudo apt-get install -y linux-image-extra-$(uname -r) alsa-utils
+  sudo apt-get install -y linux-image-generic linux-image-extra-$(uname -r) alsa-utils
   sudo usermod -aG audio ubuntu
   echo -e 'pcm.!default {\n  type plug\n  slave.pcm "hw:0,1"\n}' | sudo tee >/dev/null /etc/asound.conf
   sudo modprobe snd
